@@ -1,0 +1,10 @@
+*.pyc
+*.log
+*.sql
+*.bak
+*.tmp
+*.pot
+*~
+/static
+/media
+.idea

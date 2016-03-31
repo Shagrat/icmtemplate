@@ -1,0 +1,12 @@
+{% extends "inplaceeditform/render_media_field.html" %}
+
+
+{% block media %}
+    {% comment %}Do not call to the supper{% endcomment %}
+    <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}admin/css-10/redactor.css" />
+    <script src="{{ STATIC_URL }}admin/js-10/redactor.js"></script>
+    <script src="{{ STATIC_URL }}admin/js-10/fontcolor.js"></script>
+    <script src="{{ STATIC_URL }}admin/js-10/fontsize.js"></script>
+    <script src="{{ STATIC_URL }}admin/js-10/table.js"></script>
+{#    <script src="{{ STATIC_URL }}inline/js/redactor.init.js"></script>#}
+{% endblock %}

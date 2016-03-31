@@ -14,7 +14,6 @@ class PageAdmin(OrderableAdmin):
     prepopulated_fields = {'slug': ('title', )}
     search_fields = ('title', 'header', )
     list_display = ('title', 'slug')
-    filter_horizontal = ['blocks']
     list_filter = []
 
 

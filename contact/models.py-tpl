@@ -67,7 +67,7 @@ class Form(models.Model):
             return SiteElement.objects.get(key='email').value
         except SiteElement.DoesNotExist:
             pass
-        return 'info@allmaxhomes.ca'
+        return settings.FROM_EMAIL
 
     @staticmethod
     def handle_uploaded_file(f, date):
@@ -124,8 +124,8 @@ class Form(models.Model):
                     sender = self.get_sender(f)
                     for r in self.recipients.filter(active=True):
                         ctx['user'] = r.name or 'Admin'
-                        subject = engines['django'].from_string(u'{%% autoescape off %%}%s{%% endautoescape %%}' % self.email_subject).render(ctx)
-                        message = engines['django'].from_string(u'{%% autoescape off %%}%s{%% endautoescape %%}' % self.email_text).render(ctx)
+                        subject = engines['django'].from_string(u'{% templatetag openblock %}% autoescape off %{% templatetag closeblock %}%s{% templatetag openblock %}% endautoescape %{% templatetag closeblock %}' % self.email_subject).render(ctx)
+                        message = engines['django'].from_string(u'{% templatetag openblock %}% autoescape off %{% templatetag closeblock %}%s{% templatetag openblock %}% endautoescape %{% templatetag closeblock %}' % self.email_text).render(ctx)
                         msg = EmailMessage(subject, message, sender, [r.email])
                         if file:
                             msg.attach_file(filename_result)

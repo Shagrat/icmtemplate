@@ -1,14 +1,6 @@
 from __future__ import unicode_literals
-import json
-from django.core.urlresolvers import reverse
 from django.db import models
-from django.template import Context
-from django.template.loader import get_template
-from django.utils.safestring import mark_safe
-from image_cropping import ImageRatioField
-from icmgeneric.base import GenericSlide, GenericPage
-from orderable.models import Orderable
-from django.utils.timezone import now
+from icmgeneric.base import GenericPage
 
 
 class SiteElement(models.Model):

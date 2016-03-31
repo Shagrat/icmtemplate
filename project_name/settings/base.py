@@ -35,6 +35,8 @@ ALLOWED_HOSTS = ['*']
 
 SITE_ID = 1
 
+FROM_EMAIL = 'info@{{ project_name }}'
+
 
 # Application definition
 

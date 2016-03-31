@@ -87,8 +87,6 @@ def pushmedia():
 def deploy(islocal=False):
     if islocal:
         initdb(islocal)
-        syncdb()
-        syncmedia()
         _settings = '%(root)s/%(project)s/settings' % {'root': BASE_DIR, 'project': project}
         local('cp %(settings)s/local.py %(settings)s/current.py' % {'settings': _settings})
     else:

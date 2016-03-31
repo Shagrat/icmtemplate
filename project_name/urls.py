@@ -19,13 +19,10 @@ from django.contrib import admin
 from django.views.generic import TemplateView, RedirectView
 from content import views as content_views
 from icmgeneric import views as icm_views
-from portfolio import urls as portfolio_urls
-from service import urls as service_urls
 from django.views.static import serve
 from django.contrib.sitemaps.views import sitemap
 from content.sitemaps import sitemaps as content_sitemaps
-from service.sitemaps import sitemaps as service_sitemaps
-sitemaps = dict(content_sitemaps, **service_sitemaps)
+sitemaps = dict(content_sitemaps,)
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),

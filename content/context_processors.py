@@ -1,6 +1,6 @@
 import re
 from django.contrib.sites.models import Site
-from .models import SiteElement, Partner
+from .models import SiteElement
 
 
 def site_elements(request):
@@ -10,7 +10,6 @@ def site_elements(request):
         d[n] = s
     return {
         'se': d,
-        'partners': Partner.objects.filter(active=True)
     }
 
 

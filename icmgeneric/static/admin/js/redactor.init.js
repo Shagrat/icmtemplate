@@ -5,6 +5,7 @@
             maxHeight: 500,
             plugins: ['fontcolor','fontsize' ],
             imageUpload: '/ajax/fileupload/',
+            fileUpload: '/ajax/fileupload/',
             imageGetJson: '/ajax/imagelist/',
             convertDivs: false,
             replaceDivs: false,

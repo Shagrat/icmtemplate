@@ -12,6 +12,7 @@ $(function()
         ],
         imageUpload: '/ajax/fileupload/',
         imageManagerJson: '/ajax/imagelist/',
+        fileUpload: '/ajax/fileupload/',
         buttonSource: true,
         convertDivs: false,
         paragraphize: false,

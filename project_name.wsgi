@@ -15,7 +15,7 @@ activate_this = '/usr/home/{{ project_name }}/env/bin/activate_this.py'
 execfile(activate_this, dict(__file__=activate_this))
 
 # Set environmental variable for Django and fire WSGI handler
-os.environ['DJANGO_SETTINGS_MODULE'] = '{{ project_name }}.settings.current'
+os.environ['DJANGO_SETTINGS_MODULE'] = '{{ project_name }}.settings'
 from django.core.wsgi import get_wsgi_application
 
 application = get_wsgi_application()

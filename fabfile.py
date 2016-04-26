@@ -84,25 +84,14 @@ def pushmedia():
         sudo("tar -xf /tmp/media.tar")
 
 
-def deploy(islocal=False):
-    if islocal:
-        initdb(islocal)
-        _settings = '%(root)s/%(project)s/settings' % {'root': BASE_DIR, 'project': project}
-        local('cp %(settings)s/local.py %(settings)s/current.py' % {'settings': _settings})
-    else:
-        pull()
-        with virtualenv():
-            _settings = '%(project)s/settings' % {'project': project}
-            sudo('cp %(settings)s/production.py %(settings)s/current.py' % {'settings': _settings})
-            sudo('python manage.py collectstatic --noinput')
-            sudo('touch %s.wsgi' % wsgifilename)
+def deploy():
+    pull()
+    with virtualenv():
+        sudo('python manage.py collectstatic --noinput')
+        sudo('touch %s.wsgi' % wsgifilename)
 
 
-def updateenv(islocal=False):
-    if islocal:
-        # local('workon %(project)s; pip install -r requirements.txt' % {'project': project})
-        pass
-    else:
-        pull()
-        with virtualenv():
-            sudo('pip install -r requirements.txt')
+def updateenv():
+    pull()
+    with virtualenv():
+        sudo('pip install -r requirements.txt')

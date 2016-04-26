@@ -93,4 +93,3 @@ class BlacklistItemAdmin(admin.ModelAdmin):
     list_display = ('ip', 'comment')
 
 admin.site.register(BlacklistItem, BlacklistItemAdmin)
-

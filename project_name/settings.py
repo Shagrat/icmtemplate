@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -33,7 +33,7 @@ ADMINS = (
 
 ALLOWED_HOSTS = ['*']
 
-SITE_ID = 1
+SITE_ID = 3
 
 FROM_EMAIL = 'info@{{ project_name }}'
 
@@ -113,7 +113,7 @@ DATABASES = {
 
 THUMBNAIL_ALIASES = {
     '': {
-        'service_thumbnail': {'size': (130, 130), 'crop': True, 'upscale': True},
+        'thumbnail': {'size': (130, 130), 'crop': True, 'upscale': True},
     },
 }
 THUMBNAIL_BASEDIR = 'cache'
@@ -170,3 +170,9 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
+
+
+try:
+    from settings_local import *
+except ImportError:
+    pass

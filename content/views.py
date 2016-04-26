@@ -5,7 +5,10 @@ from icmgeneric.utils import simple
 
 
 def robots(request):
-    data = SiteElement.objects.get(key='robots').value
+    try:
+        data = SiteElement.objects.get(key='robots').value
+    except SiteElement.DoesNotExist:
+        data = ''
     return HttpResponse(data, content_type='text/plain')
 
 
@@ -21,6 +24,7 @@ def page(request, slug):
 @simple('index.html')
 def home(request):
     _page = get_object_or_404(Page, slug='home')
+
     return {
         'page': _page,
     }

@@ -13,7 +13,7 @@ import os
 
 
 def create_form_table(form):
-    s = '<table style="border-collapse: collapse;">'
+    s = u'<table style="border-collapse: collapse;">'
     for field in form:
         s += u'''
         <tr>
@@ -21,7 +21,7 @@ def create_form_table(form):
             <td style="border:1px solid #ccc; text-align: left; padding: 0.6em;">{field_value}</td>
         </tr>
         '''.format(field_label=field.label, field_value=form.cleaned_data.get(field.name, ''))
-    s += '</table>'
+    s += u'</table>'
     return s
 
 DEFAULT_EMAIL_SUBJECT = 'New Web Submission'

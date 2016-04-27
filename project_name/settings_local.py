@@ -1,3 +1,5 @@
+import os
+
 DEBUG = True
 SITE_ID = 2
 
